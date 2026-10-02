@@ -74,17 +74,26 @@ npm run dev
 O IWSDK foi feito para trabalhar junto com o Claude Code: ele traz instruções,
 *skills* e um servidor MCP que deixa o Claude **testar o app num Quest
 simulado** (tirar print, mexer as mãos virtuais, conferir a física) antes de te
-entregar. Para ligar isso, rode uma vez nesta pasta (depois do `npm install`):
+entregar. Para ligar tudo, rode **uma vez** nesta pasta, depois do
+`npm install` (precisa do Git; se não tiver, instale em <https://git-scm.com>):
 
 ```
+git init -b main
+git remote add origin https://github.com/franklinjcampos12-sudo/quest-pegar-objetos.git
+git fetch origin
+git reset origin/main
+git checkout -- .
+git branch --set-upstream-to=origin/main
 npx iwsdk adapter sync
-xcopy .agents\skills .claude\skills /E /I
 ```
 
-- O primeiro comando é o oficial do IWSDK: cria a configuração do Claude Code
-  para este projeto (o arquivo `.mcp.json` e as permissões das ferramentas do
-  IWSDK em `.claude\settings.json`).
-- O segundo copia as *skills* do IWSDK para onde o Claude Code procura.
+- As seis primeiras linhas ligam esta pasta ao seu repositório no GitHub
+  (assim você publica versões novas) e trazem de lá as *skills* e instruções do
+  IWSDK para o Claude (pasta `.claude`).
+- A última é o comando oficial do IWSDK que configura o Claude Code neste
+  computador (cria o `.mcp.json` com as ferramentas do Quest simulado).
+- Se preferir, abra o Claude Code na pasta e peça: "ligue esta pasta ao meu
+  repositório quest-pegar-objetos no GitHub e rode o npx iwsdk adapter sync".
 
 Depois, abra o **Claude Code nesta pasta** e peça em português, por exemplo:
 
@@ -92,7 +101,7 @@ Depois, abra o **Claude Code nesta pasta** e peça em português, por exemplo:
 - "Faça as bolas quicarem mais."
 - "Toque um som quando uma peça bater no chão."
 - "Mostre no painel a altura da torre que eu montar."
-- "Publique o app no GitHub Pages para eu abrir no Quest sem o PC."
+- "Publique a nova versão no GitHub."
 
 ## Onde fica cada coisa
 
