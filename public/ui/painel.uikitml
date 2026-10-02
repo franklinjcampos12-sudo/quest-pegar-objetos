@@ -1,0 +1,106 @@
+<!--
+  Painel de instruções e botões.
+  Panel, Divider, Button, ButtonIcon e ButtonLabel vêm do kit visual "Horizon"
+  (o mesmo visual do Quest). RectangleGoggles, RotateCcw e LogOut são ícones.
+  Os textos usam uma versão da fonte Inter com os acentos do português
+  (public/fonts), aplicada pelo código em src/painel.ts.
+-->
+<style>
+  .panel-root {
+    flex-direction: column;
+    width: 380px;
+    padding-bottom: 20px;
+  }
+
+  .panel-content {
+    align-items: flex-start;
+    flex-direction: column;
+    padding-top: 16px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .heading {
+    height: 40px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: -0.5px;
+    color: #272727;
+  }
+
+  .heading:dark {
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  .texto {
+    color: #272727;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .texto:dark {
+    color: rgba(255, 255, 255, 0.88);
+  }
+
+  .status {
+    color: #1565c0;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 17px;
+    width: 100%;
+    margin-top: 14px;
+  }
+
+  .status:dark {
+    color: #90caf9;
+  }
+
+  .button {
+    justify-content: flex-start;
+    margin-left: 24px;
+    margin-right: 24px;
+    margin-top: 12px;
+  }
+
+  .button-label {
+    transform-translate-y: 1px;
+  }
+</style>
+<Panel class="panel-root">
+  <div class="panel-content">
+    <div class="heading">Pegar objetos</div>
+    <Divider></Divider>
+    <div class="texto">
+      Seu primeiro app de realidade mista. As peças estão na bancada de
+      vidro bem à sua frente.
+    </div>
+    <div class="texto">
+      Aproxime a mão de uma peça e faça pinça (polegar + indicador) para
+      pegar. Abra os dedos para soltar. Dá até para arremessar!
+    </div>
+    <div class="texto">Com os controles, segure o botão lateral (grip).</div>
+    <div id="status" class="status">Carregando...</div>
+  </div>
+  <Button id="xr-button" class="button">
+    <ButtonIcon>
+      <RectangleGoggles></RectangleGoggles>
+    </ButtonIcon>
+    <ButtonLabel class="button-label">Entrar na realidade mista</ButtonLabel>
+  </Button>
+  <Button id="reset-button" class="button">
+    <ButtonIcon>
+      <RotateCcw></RotateCcw>
+    </ButtonIcon>
+    <ButtonLabel class="button-label">Reiniciar peças</ButtonLabel>
+  </Button>
+  <Button id="exit-button" class="button" style="display: none">
+    <ButtonIcon>
+      <LogOut></LogOut>
+    </ButtonIcon>
+    <ButtonLabel class="button-label">Sair da realidade mista</ButtonLabel>
+  </Button>
+</Panel>
