@@ -1,0 +1,170 @@
+<!--
+  Painel do Paredão. O nó da cena usa escala 0,1 (440 unidades = 44 cm).
+  Os textos com acento usam a fonte Inter gerada com acentos, aplicada em
+  src/painel.ts (public/fonts). Panel, Button, ButtonIcon, ButtonLabel e
+  Divider vêm do kit visual Horizon; Minus, Plus e os outros são ícones.
+-->
+<style>
+  .raiz {
+    flex-direction: column;
+    width: 440px;
+    padding-bottom: 18px;
+  }
+
+  .conteudo {
+    flex-direction: column;
+    align-items: stretch;
+    padding-top: 14px;
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .topo {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 36px;
+  }
+
+  .titulo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #272727;
+  }
+
+  .desempenho {
+    font-size: 12px;
+    font-weight: 700;
+    color: #2e7d32;
+  }
+
+  .status {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1565c0;
+    line-height: 1.3;
+    margin-top: 8px;
+    width: 100%;
+  }
+
+  .linha {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
+  }
+
+  .rotulo {
+    font-size: 14px;
+    font-weight: 500;
+    color: #272727;
+  }
+
+  .ajuste {
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .valor {
+    font-size: 14px;
+    font-weight: 700;
+    color: #272727;
+    width: 70px;
+    text-align: center;
+  }
+
+  .leitura {
+    font-size: 13px;
+    font-weight: 500;
+    color: #3a3a3a;
+    line-height: 1.3;
+    margin-top: 8px;
+    width: 100%;
+  }
+
+  .botoes {
+    flex-direction: row;
+    gap: 8px;
+    margin-top: 10px;
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .rotulo-botao {
+    transform-translate-y: 1px;
+  }
+</style>
+<Panel class="raiz">
+  <div class="conteudo">
+    <div class="topo">
+      <div class="titulo">Paredão</div>
+      <div id="desempenho" class="desempenho">-- qps</div>
+    </div>
+    <Divider></Divider>
+    <div id="status" class="status">Carregando...</div>
+
+    <div class="linha">
+      <div class="rotulo">Distância da parede</div>
+      <div class="ajuste">
+        <Button id="dist-menos"><ButtonIcon><Minus></Minus></ButtonIcon></Button>
+        <div id="dist-valor" class="valor">2,00 m</div>
+        <Button id="dist-mais"><ButtonIcon><Plus></Plus></ButtonIcon></Button>
+      </div>
+    </div>
+    <div class="linha">
+      <div class="rotulo">Abertura da face</div>
+      <div class="ajuste">
+        <Button id="face-menos"><ButtonIcon><Minus></Minus></ButtonIcon></Button>
+        <div id="face-valor" class="valor">0°</div>
+        <Button id="face-mais"><ButtonIcon><Plus></Plus></ButtonIcon></Button>
+      </div>
+    </div>
+    <div class="linha">
+      <div class="rotulo">Inclinação lateral</div>
+      <div class="ajuste">
+        <Button id="lado-menos"><ButtonIcon><Minus></Minus></ButtonIcon></Button>
+        <div id="lado-valor" class="valor">0°</div>
+        <Button id="lado-mais"><ButtonIcon><Plus></Plus></ButtonIcon></Button>
+      </div>
+    </div>
+    <div class="linha">
+      <div class="rotulo">Frente / trás</div>
+      <div class="ajuste">
+        <Button id="frente-menos"><ButtonIcon><Minus></Minus></ButtonIcon></Button>
+        <div id="frente-valor" class="valor">0°</div>
+        <Button id="frente-mais"><ButtonIcon><Plus></Plus></ButtonIcon></Button>
+      </div>
+    </div>
+
+    <div id="batida" class="leitura">Última batida: ainda nenhuma</div>
+    <div id="queda" class="leitura">Teste de queda: ainda não feito</div>
+  </div>
+
+  <div class="botoes">
+    <Button id="btn-parede">
+      <ButtonIcon><RefreshCw></RefreshCw></ButtonIcon>
+      <ButtonLabel class="rotulo-botao">Trocar parede</ButtonLabel>
+    </Button>
+    <Button id="btn-queda">
+      <ButtonIcon><ArrowDown></ArrowDown></ButtonIcon>
+      <ButtonLabel class="rotulo-botao">Teste de queda</ButtonLabel>
+    </Button>
+  </div>
+  <div class="botoes">
+    <Button id="btn-mao">
+      <ButtonIcon><Hand></Hand></ButtonIcon>
+      <ButtonLabel id="btn-mao-rotulo" class="rotulo-botao">Raquete: mão direita</ButtonLabel>
+    </Button>
+  </div>
+  <div class="botoes">
+    <Button id="btn-xr">
+      <ButtonIcon><RectangleGoggles></RectangleGoggles></ButtonIcon>
+      <ButtonLabel class="rotulo-botao">Entrar na realidade mista</ButtonLabel>
+    </Button>
+    <Button id="btn-sair" style="display: none">
+      <ButtonIcon><LogOut></LogOut></ButtonIcon>
+      <ButtonLabel class="rotulo-botao">Sair</ButtonLabel>
+    </Button>
+  </div>
+</Panel>

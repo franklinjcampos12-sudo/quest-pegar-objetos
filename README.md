@@ -13,6 +13,11 @@ Feito com o **Immersive Web SDK (IWSDK)**, o kit oficial da Meta para WebXR: o
 app roda no navegador do Quest, sem instalar nada no óculos e sem modo
 desenvolvedor.
 
+> **Outro app neste repositório:** o **Paredão**, jogo de bola na parede em
+> realidade mista com física real. Abra
+> <https://franklinjcampos12-sudo.github.io/quest-pegar-objetos/paredao/>; o
+> código fica na pasta [`paredao/`](paredao/README.md).
+
 ---
 
 ## 1. Preparar o PC (só na primeira vez)
